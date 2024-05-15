@@ -39,9 +39,28 @@
 
     .presentation{
         margin-top:6% ;
+        position: relative;
+        margin-right: 5rem;
+        .foto{
+            display: flex;
+            justify-content: end;
+            width: 450px;
+            position: absolute;
+            top: 65%;
+            right: 35%; /* La imagen se posicionará a la derecha */
+            transform: translate(50%, -50%); /* Ajustamos para centrar verticalmente */
+            z-index: -1;
+            img{
+                width: 210px;
+                height: 210px;
+                border-radius: 100%;
+            }
+        }
         .bienvenida{
             display: flex;
             flex-direction: column;
+            margin-top:0;
+           
             .hola{
                 font-weight: 500;
                 font-size:  2.5rem;

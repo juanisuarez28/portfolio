@@ -1,252 +1,289 @@
+// Estilos generales
+$color-azul: #3EA7D5;
+$color-fondo: #E1E1E1;
 
-.body{
+// Estilos del cuerpo
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    padding: 1.2rem;
+    justify-content: space-between;
+    width: 100%;
+
+    h5 {
+      color: $color-azul;
+      margin-left: 1.5rem;
+    }
+
+    li {
+      display: flex;
+      margin-right: 1.5rem;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        color: rgb(42, 35, 35);
+        background-color: $color-fondo;
+        text-decoration: none;
+        border-radius: 100%;
+        transition: 0.4s;
+
+        &:hover {
+          background-color: darken($color-fondo, 10%);
+        }
+      }
+    }
+  }
+
+  .presentation {
+    margin-top: 6%;
+    position: relative;
+    margin-right: 5rem;
+
+    .foto {
+      display: flex;
+      justify-content: end;
+      width: 450px;
+      position: absolute;
+      top: 65%;
+      right: 35%;
+      transform: translate(50%, -50%);
+      z-index: -1;
+
+      img {
+        width: 210px;
+        height: 210px;
+        border-radius: 100%;
+      }
+    }
+
+    .bienvenida {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+
+      .hola {
+        font-weight: 500;
+        font-size: 2.5rem;
+        margin-bottom: 0;
+      }
+
+      .nombreCompleto {
+        display: flex;
+
+        .nombre {
+          font-weight: 700;
+          font-size: 4rem;
+          background: linear-gradient(45deg, #6ecbf3, #0350c3, #0350c3, #16083b);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 0;
+          margin-right: 1rem;
+        }
+      }
+
+      .apellido {
+        font-weight: 700;
+        font-size: 4rem;
+        background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .detalle {
+        margin-bottom: 0;
+        font-size: 1rem;
+        color: rgb(130, 130, 130);
+
+        i {
+          margin-right: 4px;
+        }
+
+        #pc {
+          color: rgb(32, 32, 32);
+        }
+
+        #ubicacion {
+          color: rgb(234, 14, 14);
+        }
+      }
+    }
+
+    .botonesPresentacion {
+      display: flex;
+      flex-direction: row;
+      margin-top: 2rem;
+
+      button {
+        margin-right: 0.5rem;
+        color: rgb(247, 247, 247);
+        background-color: #408ed2;
+      }
+    }
+  }
+
+  hr {
+    border-top: 1.5px solid rgb(0, 0, 0);
+    width: 70%;
+  }
+
+  .titulo {
+    font-weight: 700;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .aboutMe,
+  .skills,
+  .softSkills,
+  .projects,
+  .certificados {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 40%;
+    margin-top: 12rem;
 
-    .header{
-        display: flex;
-        align-items:baseline;
-        padding: 1.2rem;
-        justify-content: space-between;
-        width: 100%;
-    
-        h5{
-            color: #3EA7D5  ;
-            margin-left: 1.5rem;
+    p {
+      text-align: center;
+    }
+  }
+
+  .skills,
+  .softSkills,
+  .projects,
+  .certificados {
+    margin-top: 5rem;
+  }
+
+  .projects,
+  .certificados {
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .card {
+        max-width: 38%;
+        border-radius: 3%;
+        margin: 2rem;
+
+        p {
+          margin-top: 1.3rem;
+          margin-bottom: 1rem;
         }
-    
-        li{
-            display: flex;
-            margin-right: 1.5rem;
-            a{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 2.5rem;
-                min-height: 2.5rem;
-                color: rgb(42, 35, 35);
-                background-color: rgb(225, 225, 225);
-                text-decoration: none;
-                border-radius: 100%;
-                transition: 0.4s;
-                }
-        
-            a:hover{
-                background-color: rgb(205, 205, 205);
-            }
+
+        .tituloCertificado {
+          font-weight: 500;
+          font-size: 1.2rem;
+          margin-bottom: 0;
         }
+
+        a {
+          text-decoration: none;
+          margin-left: 0.8rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .certificados {
+    .card {
+      max-width: 30%;
+    }
+  }
+
+  .skills {
+    .simbols {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      margin-top: 1.3rem;
+
+      i {
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+        margin-bottom: 1rem;
+        font-size: 55px;
+        transition: 0.4s;
+
+        &:hover {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+
+  .softSkills {
+    .lists {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+
+      ul {
+        margin-right: 1.3rem;
+        list-style: none;
+
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.8rem;
+
+          p {
+            margin: 0;
+            margin-left: 0.5rem;
+          }
+
+          i {
+            color: rgb(65, 170, 81);
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      color: rgb(42, 35, 35);
+      background-color: rgb(225, 225, 225);
+      text-decoration: none;
+      border-radius: 20%;
+      transition: 0.4s;
+      margin-left: 0.3rem;
+      margin-bottom: 0.5rem;
+
+      &:hover {
+        background-color: rgb(205, 205, 205);
+      }
     }
 
-    .presentation{
-        margin-top:6% ;
-        position: relative;
-        margin-right: 5rem;
-        .foto{
-            display: flex;
-            justify-content: end;
-            width: 450px;
-            position: absolute;
-            top: 65%;
-            right: 35%; /* La imagen se posicionará a la derecha */
-            transform: translate(50%, -50%); /* Ajustamos para centrar verticalmente */
-            z-index: -1;
-            img{
-                width: 210px;
-                height: 210px;
-                border-radius: 100%;
-            }
-        }
-        .bienvenida{
-            display: flex;
-            flex-direction: column;
-            margin-top:0;
-           
-            .hola{
-                font-weight: 500;
-                font-size:  2.5rem;
-                margin-bottom: 0;
-            }
-            .nombreCompleto{
-                display: flex;
-
-                .nombre{
-                    font-weight: 700;
-                    font-size: 4rem;
-                    background: linear-gradient(45deg, #6ecbf3,#0350c3,#0350c3, #16083b);
-                    -webkit-background-clip: text; /* Para que el degradado aplique al texto */
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    margin-bottom: 0;
-                    margin-right: 1rem;
-                }
-            }
-            .apellido{
-                font-weight: 700;
-                font-size: 4rem;
-                background: linear-gradient(45deg, #6ecbf3,#0350c3, #16083b);
-                -webkit-background-clip: text; /* Para que el degradado aplique al texto */
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-            .detalle{
-                margin-bottom: 0;
-                font-size: 1rem;
-                color: rgb(130, 130, 130);
-                i{
-                    margin-right: 4px;
-                }
-                #pc{
-                    color: rgb(32, 32, 32);
-                }
-                #ubicacion{
-                    color: rgb(234, 14, 14);
-                }
-            }
-        }
-        .botonesPresentacion{
-            display: flex;
-            flex-direction: row;
-            margin-top: 2rem;
-            button{
-                margin-right: 0.5rem;
-                color: rgb(247, 247, 247);
-                background-color: #408ed2;
-            }
-        }
+    p {
+      margin-left: 3rem;
     }
-    hr{
-       border-top: 1.5px solid rgb(0, 0, 0);
-       width: 70%;
-    }
-    .titulo{
-        font-weight: 700;
-        font-size: 2rem;
-        background: linear-gradient(45deg, #6ecbf3,#0350c3, #16083b);
-        -webkit-background-clip: text; /* Para que el degradado aplique al texto */
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .aboutMe, .skills, .softSkills, .projects, .certificados{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 40%;
-        margin-top: 12rem;
-        p{
-            text-align: center;
-        }
-    }
-
-    .skills, .softSkills, .projects, .certificados{
-        margin-top: 5rem;
-    }
-
-    .projects, .certificados{
-        .list{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .card{
-            max-width: 38%;
-            border-radius: 3%;
-            margin: 2rem;
-            p{
-                margin-top: 1.3rem;
-                margin-bottom: 1rem;
-            }
-            .tituloCertificado{
-                font-weight: 500;
-                font-size: 1.2rem;
-                margin-bottom: 0;
-            }
-            a{
-                text-decoration: none;
-                margin-left: 0.8rem;
-                margin-right: 0.5rem;
-            }
-        }
-    }
-
-    .certificados{
-        .card{
-            max-width: 30%;
-        }
-    }
-
-
-    .skills{
-        .simbols{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            list-style: none;
-            margin-top: 1.3rem;
-            i{
-                margin-left: 0.8rem;
-                margin-right: 0.8rem;
-                margin-bottom:1rem;
-                font-size: 55px;
-                transition: 0.4s;
-            }
-            i:hover{
-                font-size: 60px;
-            }
-        }
-    }
-
-    .softSkills{
-        .lists{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 2rem;
-            ul{
-                margin-right: 1.3rem;
-                list-style: none;
-                li{
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 0.8rem;
-                    p{
-                        margin: 0;
-                        margin-left: 0.5rem;
-                    }
-                    i{
-                        color: rgb(65, 170, 81);
-                    }
-                }
-            }
-        }
-    }
-
-    .footer{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-        a{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 2.5rem;
-            min-height: 2.5rem;
-            color: rgb(42, 35, 35);
-            background-color: rgb(225, 225, 225);
-            text-decoration: none;
-            border-radius: 20%;
-            transition: 0.4s;
-            margin-left: 0.3rem;
-            margin-bottom: 0.5rem;
-            }
-    
-        a:hover{
-            background-color: rgb(205, 205, 205);
-        }
-        p{
-            margin-left: 3rem;
-        }
-    }
+  }
 }

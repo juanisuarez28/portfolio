@@ -128,20 +128,54 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    .aboutMe, .skills, .softSkills{
+    .aboutMe, .skills, .softSkills, .projects, .certificados{
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 40%;
-        margin-top: 15rem;
+        margin-top: 12rem;
         p{
             text-align: center;
         }
     }
 
-    .skills, .softSkills{
+    .skills, .softSkills, .projects, .certificados{
         margin-top: 5rem;
     }
+
+    .projects, .certificados{
+        .list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card{
+            max-width: 38%;
+            border-radius: 3%;
+            margin: 2rem;
+            p{
+                margin-top: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            .tituloCertificado{
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+            a{
+                text-decoration: none;
+                margin-left: 0.8rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    .certificados{
+        .card{
+            max-width: 30%;
+        }
+    }
+
 
     .skills{
         .simbols{
@@ -185,6 +219,34 @@
                     }
                 }
             }
+        }
+    }
+
+    .footer{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 2.5rem;
+            min-height: 2.5rem;
+            color: rgb(42, 35, 35);
+            background-color: rgb(225, 225, 225);
+            text-decoration: none;
+            border-radius: 20%;
+            transition: 0.4s;
+            margin-left: 0.3rem;
+            margin-bottom: 0.5rem;
+            }
+    
+        a:hover{
+            background-color: rgb(205, 205, 205);
+        }
+        p{
+            margin-left: 3rem;
         }
     }
 }

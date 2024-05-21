@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material/material.module';
+import { ProjectsComponent } from './projects/projects.component';
+import { CertificadosComponent } from './certificados/certificados.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectsComponent,
+    CertificadosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,49 @@
+.projects{
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+
+  .titulo {
+    font-weight: 700;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  hr {
+    border-top: 1.5px solid rgb(0, 0, 0);
+    width: 32%;
+  }
+
+  p {
+    text-align: center;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card {
+      max-width:22%;
+      border-radius: 3%;
+      margin: 2rem;
+
+      p {
+        margin-top: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        margin-left: 0.8rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+}
+

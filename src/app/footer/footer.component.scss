@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      color: rgb(42, 35, 35);
+      background-color: rgb(225, 225, 225);
+      text-decoration: none;
+      border-radius: 20%;
+      transition: 0.4s;
+      margin-left: 0.3rem;
+      margin-bottom: 0.5rem;
+
+      &:hover {
+        background-color: rgb(205, 205, 205);
+      }
+    }
+
+    p {
+      margin-left: 3rem;
+    }
+  }

@@ -217,3 +217,109 @@ $color-fondo: #E1E1E1;
   }
 
 }
+
+@media (max-width: 430px){
+  .header{
+    padding: 1rem !important;
+    h5 {
+      margin-left: 0.5rem !important;
+      font-size: 1rem;
+    }
+
+    li{
+      margin-right: 0.5rem !important;
+    }
+
+    a{
+      min-width: 2rem !important;
+      min-height: 2rem !important;
+    }
+  }
+
+  .presentation{
+    margin-top: 22% !important;
+    margin-right: 0.5rem !important;
+
+    .foto {
+      width: 300px !important;
+      top: 55% !important;
+      right: 40% !important;
+
+      img {
+        width: 150px !important;
+        height: 150px !important;
+      }
+    }
+
+    .bienvenida{
+      .hola{
+        font-size: 1.8rem !important;
+      }
+
+      .nombre, .apellido{
+        font-size: 3rem !important;
+      } 
+
+      .apellido{
+        margin-bottom: 2rem;
+      }
+
+      .detalle{
+        font-size: 0.8rem !important;
+      }
+    }
+
+    .botonesPresentacion{
+      margin-top: 3rem !important;
+
+      button{
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  .titulo {
+    font-size: 1.5rem !important;
+  }
+
+  .aboutMe,
+  .skills,
+  .softSkills {
+    width: 80% !important;
+
+    p{
+      font-size: 15px;
+    }
+  }
+
+  .aboutMe{
+    margin-top: 8rem !important;
+  }
+
+  .skills{
+    i{
+      font-size: 40px !important;
+
+      &:hover {
+        font-size: 45px;
+      }
+    }
+  }
+
+  .softSkills {
+    .lists {
+      ul {
+        padding-left: 0.8rem;
+        li {
+          margin-bottom: 1rem !important;
+          p {
+            font-size: 12px;
+            margin-left: 0.3rem !important;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -54,3 +54,34 @@
     }
       
 
+    @media (max-width: 430px){
+      .titulo {
+        font-size: 1.5rem !important;
+      }
+      p{
+        font-size: 15px;
+      }
+      .list{
+        flex-direction: column;
+        align-items: center;
+        .card{
+          max-width: 23% !important;
+          margin: 1rem !important;
+    
+          .tituloCertificado{
+            font-size: 17px !important;
+          }
+        }
+    
+        p,a{
+          font-size: 14px;
+        }
+    
+     
+      }
+
+      hr{
+        width: 25% !important;
+      }
+    }
+    

@@ -51,7 +51,7 @@
     }
 
     .cardReact{
-      max-width: 44%;
+      max-width: 36%;
     }
   }
 
@@ -77,7 +77,7 @@
   }
   .list{
 
-    .card{
+    .card, .cardReact{
       margin: 1rem !important;
 
       .tituloCard{
@@ -85,6 +85,9 @@
       }
     }
 
+    .cardReact{
+      max-width: 32% !important;
+    }
     p,a{
       font-size: 14px;
     }

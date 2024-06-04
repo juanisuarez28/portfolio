@@ -43,10 +43,6 @@
             font-size: 1.2rem;
             margin-bottom: 0;
           }
-
-          .link{
-            margin-top: 4.4rem;
-          }
   
           a {
             text-decoration: none;
@@ -56,8 +52,13 @@
         }
       }
     }
-      
-
+        
+    @media (max-width: 650px){
+      .list{
+        flex-direction: column;
+        align-items: center;
+      }
+    }
     @media (max-width: 430px){
       .titulo {
         font-size: 1.5rem !important;
@@ -66,8 +67,7 @@
         font-size: 13.5px;
       }
       .list{
-        flex-direction: column;
-        align-items: center;
+
         .card{
           max-width: 23% !important;
           margin: 1rem !important;
@@ -75,10 +75,6 @@
           .tituloCertificado{
             font-size: 17px !important;
           }
-        }
-        
-        .link{
-          margin-top: 1rem !important;
         }
         p,a{
           font-size: 13.5px;

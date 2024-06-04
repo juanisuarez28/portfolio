@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    .card {
+    .card, .cardReact {
       max-width:22%;
       border-radius: 3%;
       margin: 2rem;
@@ -37,15 +37,31 @@
         margin-top: 1.3rem;
         margin-bottom: 1rem;
       }
-
+      .letslinks{
+        margin-top: 1.3rem;
+      }
+      .portfoliolinks{
+        margin-top: 2.7rem;
+      }
       a {
         text-decoration: none;
         margin-left: 0.8rem;
         margin-right: 0.5rem;
       }
     }
+
+    .cardReact{
+      max-width: 44%;
+    }
   }
 
+}
+
+@media (max-width: 650px){
+  .list{
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 430px){
@@ -60,8 +76,7 @@
     font-size: 13.5px;
   }
   .list{
-    flex-direction: column;
-    align-items: center;
+
     .card{
       margin: 1rem !important;
 

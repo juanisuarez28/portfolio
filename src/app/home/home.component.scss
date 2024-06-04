@@ -93,10 +93,13 @@ $color-fondo: #E1E1E1;
       flex-direction: row;
       margin-top: 2rem;
 
-      button {
-        margin-right: 0.5rem;
+
+      a{
+        text-decoration: none;
         color: rgb(247, 247, 247);
         background-color: #408ed2;
+        margin-right: 0.5rem;
+
       }
     }
   }
@@ -225,9 +228,11 @@ $color-fondo: #E1E1E1;
     .botonesPresentacion{
       margin-top: 3rem !important;
 
-      button{
+      button, a{
         font-size: 12px;
       }
+
+
     }
 
   }

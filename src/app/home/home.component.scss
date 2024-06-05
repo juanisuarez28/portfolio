@@ -133,6 +133,17 @@ $color-fondo: #E1E1E1;
     }
   }
 
+  #battery{
+    color: rgb(5, 182, 5);
+    margin-left: 0.5rem;
+
+  }
+
+  #brain{
+    color: rgb(242, 82, 106);
+    margin-left: 0.2rem;
+  }
+
   .skills,
   .softSkills {
     margin-top: 5rem;
@@ -147,8 +158,8 @@ $color-fondo: #E1E1E1;
       margin-top: 1.3rem;
 
       i {
-        margin-left: 0.8rem;
-        margin-right: 0.8rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
         margin-bottom: 1rem;
         font-size: 55px;
         transition: 0.4s;
@@ -250,6 +261,7 @@ $color-fondo: #E1E1E1;
 
   .aboutMe{
     margin-top: 8rem !important;
+
   }
 
   .skills{

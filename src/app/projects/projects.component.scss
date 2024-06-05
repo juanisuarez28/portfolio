@@ -29,7 +29,7 @@
     justify-content: center;
 
     .card, .cardReact {
-      max-width:22%;
+      max-width:20%;
       border-radius: 3%;
       margin: 2rem;
 
@@ -61,6 +61,14 @@
   .list{
     flex-direction: column;
     align-items: center;
+
+    .card{
+      max-width: 25% !important;
+    }
+
+    .cardReact{
+      max-width: 32% !important;
+    }
   }
 }
 
@@ -86,12 +94,12 @@
     }
 
     .cardReact{
-      max-width: 32% !important;
+      max-width: 36% !important;
     }
+
     p,a{
       font-size: 14px;
     }
-
  
   }
 

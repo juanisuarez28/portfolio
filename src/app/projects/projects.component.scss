@@ -15,6 +15,56 @@
     -webkit-text-fill-color: transparent;
   }
   
+  .language{
+    border-radius: 15px;
+    padding: 7px;
+    margin-top:20px;
+    margin-left: 5px;
+    font-size: 13px;
+  }
+
+  #html{
+    background-color: #5c86c6;
+    color: white;
+  }
+
+  #css{
+    background-color: rgba(250, 222, 118, 0.737);
+  }
+
+  #javascript{
+    background-color: rgb(252, 201, 108);
+  }
+
+  #sccs{
+    background-color: pink;
+  }
+
+  #angular{
+    background-color: rgb(223, 113, 105);
+  }
+
+  #typescript{
+    background-color: #6ecbf3;
+  }
+
+  #java{
+    background-color: rgb(98, 192, 98);
+  }
+
+  #springboot{
+    background-color: rgb(150, 94, 190);
+    color: white;
+  }
+
+  #maven{
+    background-color: #dfa26c;
+  }
+
+  #mongodb{
+    background-color: rgb(91, 69, 152);
+  }
+
   hr {
     border-top: 1.5px solid rgb(0, 0, 0);
     width: 32%;

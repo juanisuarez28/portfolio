@@ -1,11 +1,20 @@
 <div class="header">
-    <h5>Bienvenido a mi Portfolio!</h5>
-    <ul class="nav justify-content-end">
+    <h5></h5>
+    <div class="nav-links" [class.scrolled]="isScrolled">
+      <ul class="scroll-list" >
+        <li><a href="#aboutme">Sobre mi</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#softskills">Soft skills</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#certificates">Certificados</a></li>
+      </ul>
+    </div>
+    <ul id="links" class="nav justify-content-end">
         <li class="nav-item">
-          <a href="https://github.com/juanisuarez28" target="_blank">
+          <a class="link" href="https://github.com/juanisuarez28" target="_blank">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/juan-ignacio-suarez-/" target="_blank">
+          <a  class="link" href="https://www.linkedin.com/in/juan-ignacio-suarez-/" target="_blank">
             <i class="fa-brands fa-linkedin"></i>
           </a>
         </li>

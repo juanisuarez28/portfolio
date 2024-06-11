@@ -12,6 +12,12 @@ $color-fondo: #E1E1E1;
   .header{
     width: 100%;
   }
+
+  span{
+    color:#0350c3;
+    font-weight: 500;
+  }
+
   .presentation {
     margin-top: 6%;
     position: relative;
@@ -109,16 +115,6 @@ $color-fondo: #E1E1E1;
     width: 70%;
   }
 
-  .titulo {
-    font-weight: 700;
-    font-size: 2rem;
-    background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-
   .aboutMe,
   .skills,
   .softSkills {
@@ -132,6 +128,18 @@ $color-fondo: #E1E1E1;
       text-align: center;
     }
   }
+
+  .titulo {
+    font-weight: 700;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+ 
 
   #battery{
     color: rgb(5, 182, 5);

@@ -26,7 +26,7 @@ $color-fondo: #E1E1E1;
     .foto {
       display: flex;
       justify-content: end;
-      width: 450px;
+      width: 420px;
       position: absolute;
       top: 65%;
       right: 35%;
@@ -34,8 +34,8 @@ $color-fondo: #E1E1E1;
       z-index: -1;
 
       img {
-        width: 210px;
-        height: 210px;
+        width: 200px;
+        height: 200px;
         border-radius: 100%;
       }
     }

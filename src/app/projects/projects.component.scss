@@ -77,11 +77,12 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    .card, .cardReact {
+    .card{
       max-width:20%;
       border-radius: 3%;
       margin: 2rem;
       box-shadow: 0px 5px 5px 0px#b1b1b1;
+
 
       p {
         margin-top: 1.3rem;
@@ -100,9 +101,6 @@
       }
     }
 
-    .cardReact{
-      max-width: 36%;
-    }
   }
 
 }
@@ -115,9 +113,8 @@
     .card{
       max-width: 25% !important;
     }
-
-    .cardReact{
-      max-width: 32% !important;
+    #cardespeciales{
+      max-width: 20% !important;
     }
   }
 }
@@ -135,16 +132,12 @@
   }
   .list{
 
-    .card, .cardReact{
+    .card{
       margin: 1rem !important;
 
       .tituloCard{
         font-size: 17px !important;
       }
-    }
-
-    .cardReact{
-      max-width: 36% !important;
     }
 
     p,a{

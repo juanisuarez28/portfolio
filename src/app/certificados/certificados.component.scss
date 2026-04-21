@@ -1,98 +1,137 @@
 .certificados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 5rem auto;
 
-    .titulo {
-        font-weight: 700;
-        font-size: 2rem;
-        background: linear-gradient(45deg, #6ecbf3, #0350c3, #16083b);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+  .titulo {
+    font-weight: 800;
+    font-size: 2.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitulo {
+    color: var(--text-color-muted);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
+
+    .card {
+      width: 100%;
+      max-width: 350px;
+      /* Liquid Glass Lighter */
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), inset 0 2px 2px rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        transform: translateY(-12px) scale(1.02);
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.4);
+      }
+
+      .img-wrapper {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
       }
       
-      hr {
-        border-top: 1.5px solid rgb(0, 0, 0);
-        width: 40%;
+      &:hover .img-wrapper img {
+        transform: scale(1.08); /* Deep glass reflection effect */
       }
 
-    p {
-      text-align: center;
-    }
-
-    .list {
+      .mat-mdc-card-content {
+        padding: 1.5rem;
+        flex-grow: 1;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        
-  
-        .card {
-          max-width: 11%;
-          border-radius: 3%;
-          margin: 2rem;
-          box-shadow: 0px 5px 5px 0px#b1b1b1;
-          p {
-            margin-top: 1.3rem;
-          }
-  
-          .tituloCertificado {
-            font-weight: 500;
-            font-size: 1.2rem;
-            margin-bottom: 0;
-          }
-          .linklamansys{
-            margin-top: 1.5rem;
-          }
-          .linkreact{
-            margin-top: 2rem;
-          }
-          a {
-            text-decoration: none;
-            margin-left: 0.8rem;
-            margin-right: 0.5rem;
-          }
-        }
-      }
-    }
-        
-    @media (max-width: 1150px){
-      .list{
         flex-direction: column;
-        align-items: center;
+
+        .tituloCertificado {
+          font-weight: 700;
+          font-size: 1.2rem;
+          color: var(--text-color);
+          margin-bottom: 1rem;
+        }
+
+        p {
+          color: var(--text-color-muted);
+          line-height: 1.6;
+          margin-bottom: 0;
+          flex-grow: 1;
+        }
       }
 
-      .linklamansys{
-        margin-top: 0.5rem !important;
-      }
-    }
-    @media (max-width: 430px){
-      .titulo {
-        font-size: 1.5rem !important;
-      }
-      p{
-        font-size: 13.5px;
-      }
-      .list{
+      .mat-mdc-card-actions {
+        padding: 1rem 1.5rem 1.5rem;
+        display: flex;
 
-        .card{
-          max-width: 9% !important;
-          margin: 1rem !important;
-    
-          .tituloCertificado{
-            font-size: 17px !important;
+        a {
+          text-decoration: none;
+          color: var(--text-color);
+          font-weight: 500;
+          font-size: 0.9rem;
+          transition: color 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+
+          i {
+            color: var(--accent-color);
+          }
+
+          &:hover {
+            color: var(--accent-color);
           }
         }
-        p,a{
-          font-size: 13.5px;
-        }
-    
-     
-      }
-
-      hr{
-        width: 25% !important;
       }
     }
-    
+  }
+}
+
+@media (max-width: 900px) {
+  .certificados .list .card {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 650px) {
+  .certificados {
+    .titulo { font-size: 2rem; }
+    .list {
+      flex-direction: column;
+      align-items: center;
+      .card {
+        max-width: 90%;
+      }
+    }
+  }
+}

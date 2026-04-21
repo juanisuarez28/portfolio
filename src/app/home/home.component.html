@@ -1,93 +1,149 @@
 <div class="body">
-    <app-header class="header"></app-header>
+  <app-header class="header"></app-header>
 
-    <div class="presentation">
-      <div class="bienvenida">
-        <p class="hola">Hola! Soy</p>
-        <div class="nombreCompleto">
-          <p class="nombre">Juan Ignacio</p>
-        </div>
-        <p class="apellido">Suarez</p>
-        <p class="detalle"><i class="fa-solid fa-desktop" id="pc"></i>Desarrollador Front-end</p>
-        <p class="detalle"><i class="fa-solid fa-location-dot" id="ubicacion"></i>Tandil, Buenos Aires, Argentina</p>
+  <div class="presentation reveal">
+    <div class="bienvenida">
+      <p class="hola">Hola! Soy</p>
+      <div class="nombreCompleto">
+        <p class="nombre">Juan Ignacio <span class="apellido">Suarez</span></p>
       </div>
-      <div class="foto"><img src="/assets/imgs/perfiloscuro.jpg" alt="Foto Perfil"></div>
 
-      <div class="botonesPresentacion">
-        <a mat-flat-button href="mailto:jjuanignaciosuarez@gmail.com" class="contact"><i class="fa-solid fa-envelope"></i> Contactame</a>
-        <a mat-flat-button href="/assets/pdf/Juan-Ignacio-Suarez-CV.pdf" download="Juan-Ignacio-Suarez-CV"><i class="fa-solid fa-file-arrow-down"></i> Descargar CV</a>
+      <p class="detalle"><i class="fa-solid fa-code" id="pc"></i> Desarrollador Front-end</p>
+      <p class="detalle"><i class="fa-solid fa-location-dot" id="ubicacion"></i> Tandil, Buenos Aires, Argentina</p>
+
+      <div class="botonesPresentacion reveal delay-1">
+        <a mat-flat-button href="mailto:jjuanignaciosuarez@gmail.com" class="btn-primary">
+          <i class="fa-solid fa-envelope"></i> Contactame
+        </a>
+        <a mat-flat-button href="/assets/pdf/Juan-Ignacio-Suarez-CV-sf.pdf" download="Juan-Ignacio-Suarez-CV"
+          class="btn-secondary">
+          <i class="fa-solid fa-file-arrow-down"></i> Descargar CV
+        </a>
       </div>
     </div>
 
-    <div id="aboutme" class="aboutMe">
-      <hr>
-      <p class="titulo">SOBRE MI</p>
-      <p>Tengo 21 años y vivo en la ciudad de Tandil, provincia de Buenos Aires. <br>
-        Actualmente estoy rindiendo mis últimos exámenes finales de la Tecnicatura Universitaria en el Desarrollo de Aplicaciones Informáticas (TUDAI) en la UNICEN. <br>
+    <div class="foto reveal delay-2">
+      <div class="foto-glow"></div>
+      <img src="/assets/imgs/perfilnuevachica.PNG" alt="Foto Perfil">
+    </div>
+  </div>
+
+  <div id="aboutme" class="aboutMe reveal">
+    <div class="sobre-mi-text">
+      <p>
+        <span class="highlight-large">Tengo 23 años</span> y vivo en la ciudad de <strong>Tandil</strong>, provincia de
+        Buenos Aires. <br><br>
+        Soy <strong>Técnico Universitario en Desarrollo de Aplicaciones Informáticas</strong> (TUDAI) y
+        <strong>Diplomado en IA</strong> (DUIA), ambas carreras de la UNICEN. <br><br>
         Desde chico tengo dos grandes pasiones: <br>
-        Por un lado la <span class="resaltado">tecnología</span>, siempre me llamó la atención todo lo relacionado, ya sean dispositivos, videojuegos, como también ahora la programación. De alguna manera me mantuve conectado. <br>
-        Y por otro lado los <span>deportes</span>, especialmente el fútbol, donde forjé grandes amistades! <br>
-        La combinación de ambas forman mi <span>equilibrio ideal</span>. <i class="fa-solid fa-battery-full" id="battery"></i> <i class="fa-solid fa-brain" id="brain"></i>
+        Por un lado la <span class="resaltado">tecnología</span>; siempre me llamó la atención todo lo relacionado ya
+        sean dispositivos, videojuegos, como también ahora la programación. De alguna manera me mantuve conectado. <br>
+        Y por otro lado los <span class="resaltado">deportes</span>; especialmente el fútbol, donde forjé grandes
+        amistades. <br><br>
+        La combinación de ambas forman mi <span class="resaltado">equilibrio ideal</span>. <i
+          class="fa-solid fa-battery-full" id="battery"></i> <i class="fa-solid fa-bolt" id="brain"></i>
       </p>
     </div>
+  </div>
 
-    <div id="skills" class="skills">
-      <hr>
-      <p class="titulo">SKILLS</p>
-      <p>Me encuentro con <span>sólidos conocimientos</span> en: HTML, CSS, JavaScript, React, Angular, TypeScript, SCCS, Tailwind CSS, styled-components, Chakra, Bootstrap, Java, SpringBoot, PHP, MySQL, PostgreSQL, Firebase, GitHub, Figma, Trello, Jira. <br>
-        <span>Metodologías ágiles:</span> SCRUM.
-      </p>
-      <div class="simbols">
-        <i class="fa-brands fa-html5"></i>
-        <i class="fa-brands fa-css3-alt"></i>
-        <i class="fa-brands fa-js"></i>
-        <i class="fa-brands fa-react"></i>
-        <i class="fa-brands fa-angular"></i>
-        <i class="fa-brands fa-bootstrap"></i>
-        <i class="fa-brands fa-java"></i>
-        <i class="fa-brands fa-php"></i>
-        <i class="fa-solid fa-database"></i>
-        <i class="fa-brands fa-square-github"></i>
-        <i class="fa-brands fa-figma"></i>
-        <i class="fa-brands fa-trello"></i>
-      </div>
+  <div id="skills" class="skills reveal">
+    <p class="titulo">SKILLS</p>
+    <div class="simbols">
+      <!-- Original Skills -->
+      <div class="skill-chip reveal"><i class="fa-brands fa-html5"></i> HTML</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-js"></i> JavaScript</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-react"></i> React</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-angular"></i> Angular</div>
+
+      <div class="skill-chip reveal"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-php"></i> PHP</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-database"></i> SQL Databases</div>
+
+      <!-- Newly Added Skills -->
+      <div class="skill-chip reveal"><i class="fa-solid fa-robot"></i> OpenAI API</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-microchip"></i> Gemini API</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-diagram-project"></i> n8n</div>
+
+      <div class="skill-chip reveal"><i class="fa-brands fa-square-github"></i> GitHub</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-bitbucket"></i> Bitbucket</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-fire"></i> Firebase</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-database"></i> Supabase</div>
+
+      <div class="skill-chip reveal"><i class="fa-solid fa-server"></i> Plesk</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-server"></i> cPanel</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-network-wired"></i> FTP</div>
+
+      <div class="skill-chip reveal"><i class="fa-brands fa-wordpress"></i> WordPress</div>
+      <div class="skill-chip reveal"><i class="fa-solid fa-cart-shopping"></i> PrestaShop</div>
+
+      <div class="skill-chip reveal"><i class="fa-brands fa-figma"></i> Figma</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-trello"></i> Trello</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-jira"></i> Jira</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-confluence"></i> Confluence</div>
+      <div class="skill-chip reveal"><i class="fa-brands fa-slack"></i> Slack</div>
     </div>
+  </div>
 
-    <div id="softskills" class="softSkills">
-      <hr>
-      <p class="titulo">SOFT SKILLS</p>
-      <p>Me considero una persona creativa, comprometida, responsable y sobre todo apasionada y dispuesta a aprender. Siempre busco seguir <span>ampliando mis conocimientos</span> en nuevas tecnologías por otros medios, y <span>fortaleciendo</span> los que ya tengo a través de mis estudios. Me gusta trabajar de manera organizada donde la comunicación destaque, manteniendo un ambiente motivador y activo. 
+  <div id="softskills" class="softSkills reveal">
+    <p class="titulo">SOFT SKILLS</p>
+    <div class="content-box">
+      <p>Me considero una persona creativa, comprometida, responsable y sobre todo apasionada y dispuesta a aprender.
+        Siempre busco seguir <span class="resaltado">ampliando mis conocimientos</span> en nuevas tecnologías por otros
+        medios, y <span class="resaltado">fortaleciendo</span> los que ya tengo a través de mis estudios. Me gusta
+        trabajar de manera organizada donde la comunicación destaque, manteniendo un ambiente motivador y activo.</p>
 
-      </p>
       <div class="lists">
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i><p>Creatividad</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Compromiso</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Responsabilidad</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Proactividad</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Organización</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Comunicación efectiva</p></li>
-
+        <ul class="reveal delay-1">
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Creatividad</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Compromiso</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Responsabilidad</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Proactividad</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Organización</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Comunicación efectiva</p>
+          </li>
         </ul>
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i><p>Disciplina</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Autodidacta</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Trabajo en equipo</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Adaptabilidad</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Colaboración</p></li>
-          <li><i class="fa-solid fa-circle-check"></i><p>Empatía</p></li>
+        <ul class="reveal delay-2">
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Disciplina</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Autodidacta</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Trabajo en equipo</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Adaptabilidad</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Colaboración</p>
+          </li>
+          <li><i class="fa-solid fa-circle-check"></i>
+            <p>Empatía</p>
+          </li>
         </ul>
       </div>
     </div>
+  </div>
 
-    <app-projects id="projects"></app-projects>
+  <app-projects id="projects" class="reveal"></app-projects>
 
-    <app-certificados id="certificates"></app-certificados>
+  <app-certificados id="certificates" class="reveal"></app-certificados>
 
-    <hr>
-    <app-footer></app-footer>
+  <div class="divisor reveal"></div>
+  <app-footer></app-footer>
 </div>
-
-
-
-

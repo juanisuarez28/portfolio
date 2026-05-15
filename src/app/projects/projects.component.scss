@@ -49,6 +49,10 @@
       display: flex;
       flex-direction: column;
 
+      &.clickable {
+        cursor: pointer;
+      }
+
       &:hover {
         transform: translateY(-12px) scale(1.02);
         border-color: rgba(255, 255, 255, 0.5);

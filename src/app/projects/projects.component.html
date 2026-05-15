@@ -29,7 +29,7 @@
     </mat-card>
 
     <!-- 2. PasameLaRepe -->
-    <mat-card class="card reveal delay-2">
+    <mat-card class="card reveal delay-2 clickable" (click)="openUrl($event, 'https://pasamelarepe.com/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">PasameLaRepe</mat-card-title>
       </mat-card-header>
@@ -56,7 +56,7 @@
     </mat-card>
 
     <!-- 3. ProyectoVia -->
-    <mat-card class="card reveal delay-1">
+    <mat-card class="card reveal delay-1 clickable" (click)="openUrl($event, 'https://proyectovia.org')">
       <mat-card-header>
         <mat-card-title class="tituloCard">Proyecto VIA</mat-card-title>
       </mat-card-header>
@@ -81,7 +81,7 @@
     </mat-card>
 
     <!-- 4. Sassano Alta Costura -->
-    <mat-card class="card reveal delay-2">
+    <mat-card class="card reveal delay-2 clickable" (click)="openUrl($event, 'https://www.sassanoaltacostura.com/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">Sassano Alta Costura</mat-card-title>
       </mat-card-header>
@@ -104,7 +104,7 @@
     </mat-card>
 
     <!-- 5. SyG Foods -->
-    <mat-card class="card reveal delay-1">
+    <mat-card class="card reveal delay-1 clickable" (click)="openUrl($event, 'https://sygfoods.com.ar/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">SyG Foods</mat-card-title>
       </mat-card-header>
@@ -130,7 +130,7 @@
     </mat-card>
 
     <!-- 6. Brometan -->
-    <mat-card class="card reveal delay-2">
+    <mat-card class="card reveal delay-2 clickable" (click)="openUrl($event, 'https://brometan.com.ar/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">Brometan</mat-card-title>
       </mat-card-header>
@@ -154,7 +154,7 @@
     </mat-card>
 
     <!-- 7. Agrowise -->
-    <mat-card class="card reveal delay-1">
+    <mat-card class="card reveal delay-1 clickable" (click)="openUrl($event, 'https://agrowise.com.ar/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">Agrowise</mat-card-title>
       </mat-card-header>
@@ -178,7 +178,7 @@
     </mat-card>
 
     <!-- 8. La "R" -->
-    <mat-card class="card reveal delay-2">
+    <mat-card class="card reveal delay-2 clickable" (click)="openUrl($event, 'https://www.larradio.com/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">La "R"</mat-card-title>
       </mat-card-header>
@@ -199,6 +199,27 @@
           Visitar</a>
       </mat-card-actions>
     </mat-card>
+
+    <!-- 9. Mack Studio -->
+    <mat-card class="card reveal delay-1 clickable" (click)="openUrl($event, 'https://www.mackstudio.com.ar/')">
+      <mat-card-header>
+        <mat-card-title class="tituloCard">Mack Studio</mat-card-title>
+      </mat-card-header>
+      <div class="img-wrapper">
+        <img mat-card-image src="/assets/imgs/mack.png" alt="Mack Studio">
+      </div>
+      <mat-card-content>
+        <p>Sitio web completo para equipo de agromarketing, implementando una navegación moderna al scrollear.</p>
+        <div class="tags">
+          <span class="language tag-react">React</span>
+          <span class="language tag-supabase">Supabase</span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <a href="https://www.mackstudio.com.ar/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>
+          Visitar</a>
+      </mat-card-actions>
+    </mat-card>
   </div>
 
   <!-- SECCION UNIVERSIDAD -->
@@ -207,7 +228,7 @@
   <p class="subtitulo">Trabajos prácticos y finales destacados a lo largo de mis estudios:</p>
 
   <div class="list">
-    <mat-card class="card reveal delay-1">
+    <mat-card class="card reveal delay-1 clickable" (click)="openUrl($event, 'https://havenn.vercel.app/')">
       <mat-card-header>
         <mat-card-title class="tituloCard">haven.</mat-card-title>
       </mat-card-header>
@@ -231,7 +252,7 @@
       </mat-card-actions>
     </mat-card>
 
-    <mat-card class="card reveal delay-2">
+    <mat-card class="card reveal delay-2 clickable" (click)="openUrl($event, 'https://agile-flow-bootcamp.vercel.app/login')">
       <mat-card-header>
         <mat-card-title class="tituloCard">AgileFlow</mat-card-title>
       </mat-card-header>

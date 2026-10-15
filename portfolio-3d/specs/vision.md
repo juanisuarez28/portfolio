@@ -27,10 +27,12 @@ Reemplaza en forma y experiencia al portfolio clásico en Angular (raíz de este
 | Celular en el escritorio | Contacto |
 | Impresora | CV (descarga) |
 | Lámpara | Alternar día / noche |
-| Consola + TV | Easter egg (videojuegos) |
-| Pelota | Easter egg (jueguitos) |
+| Ventana | Asomarse: Tandil en 3D (sierras, Piedra Movediza, barrio) |
+| Tele + control remoto | Zapping por canales que guiñan a proyectos reales + penales jugables |
+| Pelota | Física, embocar en el cesto, minijuego de jueguitos |
+| Mate, figurita, código Konami… | Secretos coleccionables (8) |
 
-## Fuera de alcance (v1)
+## Fuera de alcance
 - Caminar en primera persona.
-- Física completa / motor de juego.
 - Backend o CMS: el contenido vive en archivos TypeScript.
+- Descartado en v2: clima real de Tandil, mascota, terminal en la compu, libro de visitas.

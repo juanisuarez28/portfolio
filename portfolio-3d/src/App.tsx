@@ -3,10 +3,13 @@ import { profile } from './content/profile'
 import { sections } from './content/sections'
 import { hasWebGL } from './lib/webgl'
 import { useAppStore } from './store/useAppStore'
+import { Behaviors } from './ui/Behaviors'
 import { ErrorBoundary } from './ui/ErrorBoundary'
+import { GameOverlays } from './ui/GameOverlays'
 import { Hud } from './ui/Hud'
 import { Loader } from './ui/Loader'
 import { Panel } from './ui/Panel'
+import { SecretsPanel } from './ui/SecretsPanel'
 import { sectionContent } from './ui/sections'
 import { Toast } from './ui/Toast'
 
@@ -50,8 +53,11 @@ export default function App() {
           </Suspense>
         )}
       </div>
+      <Behaviors />
+      <GameOverlays />
       <Hud />
       <Panel />
+      <SecretsPanel />
       <Toast />
       <Loader />
     </ErrorBoundary>

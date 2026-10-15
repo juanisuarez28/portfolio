@@ -33,5 +33,6 @@ Llenar la habitación con objetos que cuenten quién es Juani y sirvan de puerta
 - [x] Bed, Plant, Rug
 
 ## Notas de implementación
+- **v2:** todos estos objetos pasaron a Blender (F13/F14). `src/scene/objects/` se eliminó.
 - Extra: reloj de pared con la hora real, póster de Tandil, puff, cortinas, globo terráqueo.
 - La silla rueda a un costado cuando se enfoca la compu (si no, tapa la pantalla).

@@ -100,3 +100,28 @@ export const linkIcon = {
   figma: FigmaIcon,
   doc: FileIcon,
 }
+
+export const SoundOnIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}>
+    <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+    <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" />
+  </svg>
+)
+export const SoundOffIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}>
+    <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+    <path d="m16 9 5 6M21 9l-5 6" />
+  </svg>
+)
+export const TrophyIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}>
+    <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z" />
+    <path d="M17 6h3v2a3 3 0 0 1-3 3M7 6H4v2a3 3 0 0 0 3 3" />
+  </svg>
+)
+export const ResetIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}>
+    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+    <path d="M3 3v5h5" />
+  </svg>
+)

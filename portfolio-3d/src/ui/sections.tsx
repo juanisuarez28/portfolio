@@ -4,6 +4,7 @@ import { profile } from '../content/profile'
 import { skillGroups, softSkills } from '../content/skills'
 import type { SectionId } from '../content/types'
 import { BallIcon, CodeIcon, CopyIcon, DownloadIcon, ExternalIcon, FileIcon, GithubIcon, LinkedinIcon, MailIcon, PinIcon } from './icons'
+import { ContactChat } from './ContactChat'
 import { ProjectsBrowser } from './ProjectsBrowser'
 
 export function About() {
@@ -185,6 +186,6 @@ export const sectionContent: Record<SectionId, () => React.JSX.Element> = {
   projects: () => <ProjectsBrowser variant="panel" />,
   education: Education,
   skills: Skills,
-  contact: Contact,
+  contact: () => <ContactChat variant="panel" />,
   cv: Cv,
 }

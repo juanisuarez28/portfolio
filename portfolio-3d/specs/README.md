@@ -40,6 +40,19 @@ Estados: `📝 Spec` · `🚧 En curso` · `✅ Hecho` · `⏸️ Pospuesto`
 | F10 | [Easter eggs](features/F10-easter-eggs.md) | ✅ Hecho |
 | F11 | [Carga, rendimiento y mobile](features/F11-loading-performance.md) | ✅ Hecho (CA1 pendiente) |
 | F12 | [Accesibilidad y SEO](features/F12-a11y-seo.md) | ✅ Hecho |
+| **v2** | | |
+| F13 | [Pipeline de assets: Blender + PBR + AO](features/F13-asset-pipeline.md) | ✅ Hecho |
+| F14 | [Nuevo layout y objetos auténticos](features/F14-layout-authentic.md) | ✅ Hecho |
+| F15 | [Luz y atmósfera](features/F15-light-atmosphere.md) | ✅ Hecho |
+| F16 | [Ventana con vista 3D y acercamiento](features/F16-window-3d.md) | ✅ Hecho |
+| F17 | [Pelota con física y cesto](features/F17-ball-physics.md) | ✅ Hecho |
+| F18 | [Minijuego de jueguitos](features/F18-keepy-uppy.md) | ✅ Hecho |
+| F19 | [Tele con zapping](features/F19-tv-zapping.md) | ✅ Hecho |
+| F20 | [Penales jugables](features/F20-penalties.md) | ✅ Hecho |
+| F21 | [Secretos coleccionables](features/F21-secrets.md) | ✅ Hecho |
+| F22 | [Celular que suena y contacto tipo chat](features/F22-phone-chat.md) | ✅ Hecho |
+| F23 | [Sonido ambiente y efectos](features/F23-sound.md) | ✅ Hecho |
+| F24 | [Mobile: hoja de contenido legible](features/F24-mobile-sheet.md) | ✅ Hecho |
 
 ## Backlog (ideas para próximas versiones)
 
@@ -50,3 +63,4 @@ Estados: `📝 Spec` · `🚧 En curso` · `✅ Hecho` · `⏸️ Pospuesto`
 - Bajar el peso del bundle 3D (hoy ~507 KB gzip, ver F11).
 - Link a la "versión clásica" del portfolio (falta la URL pública: `classicUrl` en `src/content/profile.ts`).
 - Escena exterior "Mi barrio de clientes" al hacer clic en la ventana.
+- Descartadas por ahora (v2): clima real de Tandil, mascota, terminal en la compu, libro de visitas.

@@ -29,5 +29,6 @@ Un diorama de habitación que se vea "renderizado": materiales cálidos, sombras
 - [x] Postprocesado
 
 ## Notas de implementación
+- **v2:** la estructura y los muebles vienen del GLB de Blender (F13); la vista dibujada en canvas se reemplazó por el exterior 3D (F16); N8AO se quitó (AO horneado).
 - La vista de Tandil es un plano de 3.6 × 1.8 m pegado detrás de la ventana (`z = -3.7`): uno más grande y lejano se veía por fuera de la habitación porque el diorama está abierto.
 - Environment con `Lightformer`s orientados con `rotation` (la prop `lookAt` rompe en drei 10).

@@ -1,4 +1,7 @@
 import type { SectionId } from '../content/types'
+import type { Focus } from '../store/useAppStore'
+import { KEEPY_CENTER } from './ball/keepy'
+import { TV, WINDOW } from './layout'
 
 export type Vec3 = [number, number, number]
 
@@ -10,6 +13,8 @@ export interface CameraPreset {
 }
 
 export const FOV = 30
+/** FOV más abierto al asomarse a la ventana (con 30° el paisaje parece teleobjetivo) */
+export const WINDOW_FOV = 55
 
 export const OVERVIEW: CameraPreset = {
   position: [7.4, 5.6, 8.4],
@@ -24,13 +29,22 @@ export const INTRO: CameraPreset = {
   fitWidth: 9.4,
 }
 
+// v2 (F14): el escritorio está en x = 0.35 y la impresora contra la pared del fondo
 export const PRESETS: Record<SectionId, CameraPreset> = {
-  projects: { position: [0.8, 1.24, -1.06], target: [0.8, 1.16, -2.73], fitWidth: 1.15 },
-  education: { position: [1.3, 1.6, 2.0], target: [1.4, 1.65, -2.9], fitWidth: 3.1 },
+  projects: { position: [0.3, 1.24, -1.06], target: [0.3, 1.16, -2.8], fitWidth: 1.15 },
+  education: { position: [1.4, 1.65, 2.0], target: [1.3, 1.75, -2.9], fitWidth: 3.2 },
   skills: { position: [-0.2, 1.75, 2.0], target: [-3, 1.6, 1.75], fitWidth: 1.5 },
-  about: { position: [0.24, 1.7, 0.8], target: [-3, 1.45, -0.2], fitWidth: 2 },
-  contact: { position: [1.1, 1.45, -1.25], target: [1.42, 0.86, -2.43], fitWidth: 0.7 },
-  cv: { position: [0.95, 1.65, -0.3], target: [2.45, 0.75, -1.65], fitWidth: 1.3 },
+  about: { position: [0.24, 1.7, 0.8], target: [-3, 1.45, -0.35], fitWidth: 2.7 },
+  // de frente a la pantalla del celular (que está girado -0.4 rad e inclinado hacia atrás)
+  contact: { position: [0.765, 0.975, -2.1], target: [0.902, 0.848, -2.426], fitWidth: 0.26 },
+  cv: { position: [1.65, 1.55, -0.85], target: [1.6, 0.8, -2.75], fitWidth: 1.2 },
+}
+
+/** Vistas sin panel: asomarse a la ventana (F16) y los minijuegos (F18, F20) */
+export const FOCUS_PRESETS: Record<Focus, CameraPreset> = {
+  window: { position: [WINDOW.x + 0.3, 1.8, -2.2], target: [WINDOW.x - 1.2, 1.0, -12], fitWidth: 0.6 },
+  keepy: { position: [KEEPY_CENTER.x + 2.0, 1.45, KEEPY_CENTER.z + 2.4], target: [KEEPY_CENTER.x, 0.65, KEEPY_CENTER.z], fitWidth: 1.8 },
+  penalties: { position: [-1.6, 1.22, -1.28], target: [TV.x, TV.y, TV.z], fitWidth: 1.25 },
 }
 
 /**

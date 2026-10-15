@@ -4,7 +4,9 @@
 - **Vite + React 19 + TypeScript**: build estático, compatible con Vercel sin configuración extra.
 - **three.js + @react-three/fiber**: render 3D declarativo con componentes React.
 - **@react-three/drei**: `CameraControls`, `Html`, `RoundedBox`, `ContactShadows`, `Environment`/`Lightformer`, `useTexture`, `useProgress`.
-- **@react-three/postprocessing**: N8AO (oclusión ambiental), Bloom, Vignette, SMAA, tone mapping ACES.
+- **@react-three/postprocessing**: Bloom, tilt-shift (vista general), desenfoque de fondo (secciones), Vignette, SMAA, tone mapping ACES.
+- **@react-three/rapier** (diferido): física de la pelota y objetos volteables.
+- **Blender 4.5 LTS** (fuera del repo) + **gltf-transform** (dev): modelo de la habitación, AO horneado y compresión meshopt.
 - **zustand**: estado global chico (sección activa, hover, modo noche, flags de UI).
 - **sharp** (dev): script que optimiza las imágenes del portfolio clásico a WebP.
 
@@ -45,12 +47,9 @@ El portfolio clásico es Angular 17. El ecosistema de R3F/drei resuelve de fábr
 (HTML dentro del monitor, transiciones de cámara, postprocesado, carga de texturas) y Juani ya conoce React.
 Se crea un proyecto nuevo y el clásico queda intacto.
 
-### ADR-002 — Geometría procedural en v1, Blender como mejora
-Blender no está instalado en la máquina de desarrollo. La v1 modela todo con geometría paramétrica
-(cajas redondeadas, cilindros, extrusiones) y texturas generadas en canvas (piso, diplomas, post-its,
-vista de Tandil). Ventajas: cero archivos pesados, todo editable desde código, carga instantánea.
-La calidad visual se obtiene con iluminación (sombras suaves, environment con lightformers, N8AO, bloom).
-Cada objeto es un componente aislado, así que se puede reemplazar por un `.glb` de Blender sin tocar el resto.
+### ADR-002 — Geometría procedural en v1, Blender en v2
+En v1 la habitación se modeló con primitivas en código. **En v2 se reemplazó por un modelo hecho en Blender** (ver ADR-007);
+las texturas que dependen del contenido (diplomas, corcho, pantallas) se siguen generando en canvas.
 
 ### ADR-003 — Contenido en HTML real, no texto 3D
 Los paneles son DOM (accesibles, seleccionables, indexables). Dentro del monitor se usa `drei/Html` con
@@ -69,3 +68,24 @@ y respeta los materiales que ya tienen emisivo propio (pantallas, LEDs).
 Para no perder el portfolio Angular, el 3D vive en `portfolio-3d/` dentro del mismo repo (rama `portfolio-3d` mientras se prueba).
 Se despliega con un proyecto de Vercel propio (Root Directory = `portfolio-3d`); el proyecto existente sigue publicando el Angular desde la raíz.
 Cuando el 3D reemplace al clásico, basta con apuntar el dominio al proyecto nuevo.
+
+### ADR-007 — Habitación en Blender con AO horneado, iluminación en tiempo real
+`blender/build_room.py` construye toda la habitación por script (reproducible y versionado), hornea **solo oclusión ambiental**
+en Cycles a un atlas compartido (UV1) y exporta un GLB a `blender/out/`. `npm run model:optimize` lo comprime con meshopt
+(6,4 → 2,3 MB) y pasa el AO a WebP en `public/models/`. No se hornea la luz completa para que el día/noche siga siendo dinámico.
+En la web, `RoomMaterials` (`src/scene/room/materials.ts`) reemplaza los materiales por PBR con texturas CC0 de Poly Haven.
+Al cargar, `normalizeBlenderAxes` deshace la conversión de ejes del exportador (L' = C⁻¹·L·C) para que cada nodo quede en
+coordenadas de three.js. Ojo: meshopt deduplica buffers, así que se transforma por atributo y la función es idempotente.
+
+### ADR-008 — Exterior por stencil
+El paisaje de la ventana es una escena 3D grande (terreno, barrio, sierras). Para que no se asome por fuera del diorama,
+la ventana escribe el stencil y todos los materiales del exterior usan `stencilFunc = EqualStencilFunc`. Requiere
+`stencil: true` en el renderer y `stencilBuffer` en el EffectComposer. El interior usa `fog: false`: la niebla solo afecta al exterior.
+Al asomarse, la cámara anima el FOV de 30° a 55° (con 30° el paisaje parecía teleobjetivo).
+
+### ADR-009 — Sonido sintetizado
+Todo el audio (ambiente, efectos y la radio lo-fi) se sintetiza con Web Audio en `src/lib/audio.ts`: cero archivos, cero licencias.
+Arranca en silencio y el contexto se crea en el primer gesto del usuario.
+
+### ADR-010 — Física diferida
+Rapier (wasm) pesa ~1 MB; se carga con `lazy()` recién en el primer pateo. Antes, la pelota es estática.

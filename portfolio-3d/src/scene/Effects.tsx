@@ -1,22 +1,31 @@
-import { Bloom, EffectComposer, N8AO, SMAA, ToneMapping, Vignette } from '@react-three/postprocessing'
+import { Bloom, DepthOfField, EffectComposer, SMAA, TiltShift2, ToneMapping, Vignette } from '@react-three/postprocessing'
 import { ToneMappingMode } from 'postprocessing'
-import { useAppStore } from '../store/useAppStore'
+import { currentView, useAppStore } from '../store/useAppStore'
+import { PRESETS, FOCUS_PRESETS } from './cameraPresets'
 
-/** Postprocesado (F03). En calidad baja se omite la oclusión ambiental (F11). */
+/**
+ * Postprocesado (F03 + F15). El AO viene horneado de Blender (F13), así que no hace falta N8AO.
+ * - Vista general: tilt-shift (efecto maqueta).
+ * - Con una sección enfocada: desenfoque del fondo con foco en el objeto.
+ * En calidad baja se omiten tilt-shift y desenfoque (F11).
+ */
 export function Effects() {
   const quality = useAppStore((s) => s.quality)
+  const view = useAppStore(currentView)
+  const settled = useAppStore((s) => s.cameraSettled)
   const high = quality === 'high'
+  const preset = view ? (view in PRESETS ? PRESETS[view as keyof typeof PRESETS] : FOCUS_PRESETS[view as keyof typeof FOCUS_PRESETS]) : null
+  const dof = high && preset && settled && view !== 'projects' && view !== 'contact' && view !== 'penalties' && view !== 'keepy'
+  const mode = !high ? 'low' : !view ? 'tilt' : dof ? 'dof' : 'plain'
+
   return (
-    <EffectComposer key={quality} multisampling={0} enableNormalPass={false}>
-      {high ? (
-        <N8AO halfRes aoRadius={0.55} intensity={2.4} distanceFalloff={0.9} color="#2b1a10" quality="medium" />
-      ) : (
-        <></>
-      )}
-      <Bloom mipmapBlur luminanceThreshold={1} luminanceSmoothing={0.2} intensity={0.7} radius={0.7} />
+    <EffectComposer key={mode} multisampling={0} enableNormalPass={false} stencilBuffer>
+      {mode === 'tilt' ? <TiltShift2 blur={0.09} taper={0.6} start={[0.5, 0.2]} end={[0.5, 0.8]} samples={8} /> : <></>}
+      {mode === 'dof' && preset ? <DepthOfField target={preset.target} focalLength={0.04} bokehScale={2.2} resolutionScale={0.5} /> : <></>}
+      <Bloom mipmapBlur luminanceThreshold={1.15} luminanceSmoothing={0.15} intensity={0.7} radius={0.65} />
       <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
       <SMAA />
-      <Vignette offset={0.3} darkness={0.5} />
+      <Vignette offset={0.3} darkness={0.45} />
     </EffectComposer>
   )
 }

@@ -24,4 +24,5 @@ Detalles que muestran personalidad (fútbol y videojuegos).
 - [x] RGB animado en la torre
 
 ## Notas de implementación
+- **v2:** la pelota pasó a tener física (F17) y minijuego (F18); la tele, zapping (F19) y penales (F20).
 - Si la pelota cae y pasan 1.2 s sin tocarla, el contador vuelve a 0.

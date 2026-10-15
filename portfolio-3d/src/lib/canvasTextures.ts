@@ -641,3 +641,114 @@ export function posterTexture() {
     ctx.fillText('Piedra Movediza · Buenos Aires', w / 2, h * 0.92)
   })
 }
+
+// ───────────────────────────── v2: reloj, figurita, llamada ─────────────────────────────
+
+export function clockFaceTexture() {
+  return canvasTexture('clock-face', 512, 512, (ctx, w) => {
+    const c = w / 2
+    ctx.fillStyle = '#fbf7ef'
+    ctx.beginPath()
+    ctx.arc(c, c, c, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.fillStyle = '#1d1f24'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.font = `600 52px ${FONT}`
+    for (let i = 1; i <= 12; i++) {
+      const a = (i / 12) * Math.PI * 2
+      ctx.fillText(String(i), c + Math.sin(a) * 190, c - Math.cos(a) * 190)
+    }
+    for (let i = 0; i < 60; i++) {
+      const a = (i / 60) * Math.PI * 2
+      const r0 = i % 5 === 0 ? 228 : 236
+      ctx.lineWidth = i % 5 === 0 ? 5 : 2
+      ctx.strokeStyle = '#1d1f24'
+      ctx.beginPath()
+      ctx.moveTo(c + Math.sin(a) * r0, c - Math.cos(a) * r0)
+      ctx.lineTo(c + Math.sin(a) * 248, c - Math.cos(a) * 248)
+      ctx.stroke()
+    }
+    ctx.font = `500 22px ${FONT}`
+    ctx.fillStyle = '#00a3c7'
+    ctx.fillText('TANDIL', c, c + 90)
+  })
+}
+
+export function figuritaTexture(name: string) {
+  return canvasTexture('figurita', 256, 350, (ctx, w, h) => {
+    const g = ctx.createLinearGradient(0, 0, w, h)
+    g.addColorStop(0, '#75aadb')
+    g.addColorStop(0.5, '#ffffff')
+    g.addColorStop(1, '#75aadb')
+    ctx.fillStyle = g
+    ctx.fillRect(0, 0, w, h)
+    ctx.strokeStyle = '#d4a72c'
+    ctx.lineWidth = 10
+    ctx.strokeRect(8, 8, w - 16, h - 16)
+    // silueta del jugador
+    ctx.fillStyle = '#1d1f24'
+    ctx.beginPath()
+    ctx.arc(w / 2, 120, 42, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.beginPath()
+    ctx.roundRect(w / 2 - 70, 165, 140, 110, 30)
+    ctx.fill()
+    ctx.fillStyle = '#d4a72c'
+    ctx.font = `800 24px ${FONT}`
+    ctx.textAlign = 'center'
+    ctx.fillText('★ ★ ★', w / 2, 52)
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(18, 280, w - 36, 52)
+    ctx.fillStyle = '#1d1f24'
+    ctx.font = `800 26px ${FONT}`
+    ctx.fillText(name.toUpperCase(), w / 2, 316)
+  })
+}
+
+export function phoneCallTexture(name: string) {
+  return canvasTexture('phone-call', 360, 720, (ctx, w, h) => {
+    const bg = ctx.createLinearGradient(0, 0, 0, h)
+    bg.addColorStop(0, '#0b3d2e')
+    bg.addColorStop(1, '#13191f')
+    ctx.fillStyle = bg
+    ctx.fillRect(0, 0, w, h)
+    ctx.fillStyle = 'rgba(255,255,255,0.7)'
+    ctx.textAlign = 'center'
+    ctx.font = `400 26px ${FONT}`
+    ctx.fillText('Llamada entrante', w / 2, 120)
+    ctx.fillStyle = '#25d366'
+    ctx.beginPath()
+    ctx.arc(w / 2, 260, 80, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.fillStyle = '#fff'
+    ctx.font = `800 80px ${FONT}`
+    ctx.fillText(name[0], w / 2, 290)
+    ctx.font = `700 40px ${FONT}`
+    ctx.fillText(name, w / 2, 400)
+    ctx.font = `400 22px ${FONT}`
+    ctx.fillStyle = 'rgba(255,255,255,0.7)'
+    ctx.fillText('Tocá para atender', w / 2, 440)
+    ctx.fillStyle = '#e03131'
+    ctx.beginPath()
+    ctx.arc(w * 0.28, 600, 42, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.fillStyle = '#25d366'
+    ctx.beginPath()
+    ctx.arc(w * 0.72, 600, 42, 0, Math.PI * 2)
+    ctx.fill()
+  })
+}
+
+/** Copia de una textura con flipY = false, para planos con UV de glTF */
+const gltfCache = new Map<string, THREE.Texture>()
+export function forGltf(t: THREE.Texture) {
+  let c = gltfCache.get(t.uuid)
+  if (!c) {
+    c = t.clone()
+    c.flipY = false
+    c.needsUpdate = true
+    gltfCache.set(t.uuid, c)
+  }
+  return c
+}

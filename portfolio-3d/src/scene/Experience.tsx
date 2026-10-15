@@ -2,14 +2,17 @@ import { PerformanceMonitor } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, useState } from 'react'
 import { useAppStore } from '../store/useAppStore'
+import { BallSystem } from './ball/BallSystem'
 import { CameraRig } from './CameraRig'
 import { FOV, INTRO } from './cameraPresets'
+import { Confetti } from './Confetti'
 import { Effects } from './Effects'
 import { Lights } from './Lights'
-import { Furniture } from './objects'
-import { Room } from './Room'
+import { Outside } from './outside/Outside'
+import { RoomModel } from './room/RoomModel'
+import { SunBeam } from './SunBeam'
 
-/** Canvas principal: habitación, luces, cámara y postprocesado. */
+/** Canvas principal: habitación de Blender, exterior, luces, física, cámara y postprocesado. */
 export function Experience() {
   const setQuality = useAppStore((s) => s.setQuality)
   const [dpr, setDpr] = useState(Math.min(window.devicePixelRatio, 2))
@@ -18,10 +21,14 @@ export function Experience() {
     <Canvas
       shadows
       dpr={dpr}
-      gl={{ antialias: false, powerPreference: 'high-performance', stencil: false }}
-      camera={{ fov: FOV, near: 0.1, far: 80, position: INTRO.position }}
+      gl={{ antialias: false, powerPreference: 'high-performance', stencil: true }}
+      camera={{ fov: FOV, near: 0.05, far: 400, position: INTRO.position }}
+      onCreated={(s) => {
+        if (import.meta.env.DEV) (window as unknown as { __scene: unknown }).__scene = s.scene
+      }}
       onPointerMissed={() => {
-        if (useAppStore.getState().section) useAppStore.getState().setSection(null)
+        const s = useAppStore.getState()
+        if (s.section || s.focus === 'window') s.goHome()
       }}
     >
       <PerformanceMonitor
@@ -34,8 +41,11 @@ export function Experience() {
       <Lights />
       <Suspense fallback={null}>
         <Effects />
-        <Room />
-        <Furniture />
+        <RoomModel />
+        <Outside />
+        <SunBeam />
+        <BallSystem />
+        <Confetti />
         <ReadySignal />
       </Suspense>
       <CameraRig />
@@ -43,7 +53,7 @@ export function Experience() {
   )
 }
 
-/** Se monta cuando todo lo suspendido (texturas) ya cargó */
+/** Se monta cuando todo lo suspendido (modelo y texturas) ya cargó */
 function ReadySignal() {
   const setSceneReady = useAppStore((s) => s.setSceneReady)
   useEffect(() => {

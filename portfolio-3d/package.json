@@ -8,12 +8,15 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "textures": "node scripts/fetch-textures.mjs",
+    "model:optimize": "gltf-transform meshopt blender/out/room_raw.glb public/models/room.glb --level medium && node -e \"require('sharp')('blender/out/room_ao.png').grayscale().webp({quality:82}).toFile('public/models/room_ao.webp')\""
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
     "@react-three/postprocessing": "^3.2.0",
+    "@react-three/rapier": "^2.2.0",
     "maath": "^0.10.8",
     "postprocessing": "^6.39.5",
     "react": "^19.2.8",
@@ -22,6 +25,7 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@gltf-transform/cli": "^4.5.1",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",

@@ -53,6 +53,7 @@ Estados: `📝 Spec` · `🚧 En curso` · `✅ Hecho` · `⏸️ Pospuesto`
 | F22 | [Celular que suena y contacto tipo chat](features/F22-phone-chat.md) | ✅ Hecho |
 | F23 | [Sonido ambiente y efectos](features/F23-sound.md) | ✅ Hecho |
 | F24 | [Mobile: hoja de contenido legible](features/F24-mobile-sheet.md) | ✅ Hecho |
+| F25 | [Rendimiento en PCs comunes](features/F25-performance-tiers.md) | ✅ Hecho |
 
 ## Backlog (ideas para próximas versiones)
 

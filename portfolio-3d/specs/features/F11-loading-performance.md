@@ -6,7 +6,7 @@ Carga rápida y fluida en desktop y celulares de gama media.
 
 ## Requisitos
 - R1. Pantalla de carga con progreso y botón "Entrar" que inicia la intro.
-- R2. DPR adaptativo con `PerformanceMonitor` (baja calidad si caen los FPS): desactiva N8AO y reduce sombras.
+- R2. DPR adaptativo con `PerformanceMonitor` (baja calidad si caen los FPS): desactiva N8AO y reduce sombras. Ampliado en F25.
 - R3. En touch: órbita con un dedo, pinch-zoom limitado, sin hover.
 - R4. Texturas 3D pequeñas (`-sm.webp`), texturas canvas memoizadas.
 - R5. Respeta `prefers-reduced-motion` (transiciones más cortas).

@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { SectionId } from '../content/types'
 import { SECRETS, type SecretId } from '../content/secrets'
+import { detectQuality } from '../lib/webgl'
 
 export type Quality = 'high' | 'low'
 /** Vistas sin panel de contenido: ventana (F16) y minijuegos (F18, F20) */
@@ -43,6 +44,8 @@ interface AppState {
   cameraSettled: boolean
   interacted: boolean
   quality: Quality
+  /** true si la eligió el usuario: el PerformanceMonitor ya no la cambia (F25) */
+  qualityLocked: boolean
   sceneReady: boolean
 
   // tele (F19): 0 = apagada, 1..4 canales
@@ -73,6 +76,7 @@ interface AppState {
   start: () => void
   setCameraSettled: (settled: boolean) => void
   setQuality: (quality: Quality) => void
+  toggleQuality: () => void
   setSceneReady: () => void
   nextChannel: () => void
   setTvChannel: (ch: number) => void
@@ -98,7 +102,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   started: false,
   cameraSettled: false,
   interacted: false,
-  quality: 'high',
+  quality: LS.get<Quality | null>('quality', null) ?? detectQuality(),
+  qualityLocked: LS.get<Quality | null>('quality', null) !== null,
   sceneReady: false,
   tvChannel: 0,
   channelsSeen: [],
@@ -123,7 +128,15 @@ export const useAppStore = create<AppState>((set, get) => ({
   toggleNight: () => set((s) => ({ night: !s.night, interacted: true })),
   start: () => set({ started: true }),
   setCameraSettled: (cameraSettled) => set({ cameraSettled }),
-  setQuality: (quality) => set({ quality }),
+  // el ajuste automático no pisa lo que eligió el usuario
+  setQuality: (quality) => {
+    if (!get().qualityLocked) set({ quality })
+  },
+  toggleQuality: () => {
+    const quality = get().quality === 'high' ? 'low' : 'high'
+    LS.set('quality', quality)
+    set({ quality, qualityLocked: true })
+  },
   setSceneReady: () => set({ sceneReady: true }),
   nextChannel: () => {
     const ch = (get().tvChannel + 1) % 5

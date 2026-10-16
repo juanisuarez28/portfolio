@@ -89,3 +89,8 @@ Arranca en silencio y el contexto se crea en el primer gesto del usuario.
 
 ### ADR-010 — Física diferida
 Rapier (wasm) pesa ~1 MB; se carga con `lazy()` recién en el primer pateo. Antes, la pelota es estática.
+
+### ADR-011 — Sombras bajo demanda y calidad por hardware
+Con dos luces con sombra, cada frame renderizaba la escena 3 veces. Como la habitación es casi estática, `shadowMap.autoUpdate` va en false
+y `ShadowUpdater` refresca los shadow maps solo cuando algo se mueve. La calidad inicial se decide por hardware (F25) y la calidad baja
+recorta lo caro que casi no se ve (DoF, clearcoat/sheen, DPR) en lugar de apagar el postprocesado.

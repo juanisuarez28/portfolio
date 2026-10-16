@@ -29,7 +29,7 @@ import { ProjectsBrowser } from '../../ui/ProjectsBrowser'
 import { CHAIR, SCREEN } from '../layout'
 import { TvScreen } from '../tv/TvScreen'
 import { INTERACTIVES, type InteractiveDef } from './interactives'
-import { RoomMaterials, textureUrls } from './materials'
+import { applyMaterialQuality, RoomMaterials, textureUrls } from './materials'
 
 const MODEL = '/models/room.glb'
 const AO = '/models/room_ao.webp'
@@ -230,6 +230,9 @@ export function RoomModel() {
     SETUPS.set(gltf.scene, result)
     return result
   }, [gltf, texList, aoTex, certTex, photoTex, urls, woolNor])
+
+  const quality = useAppStore((s) => s.quality)
+  useEffect(() => applyMaterialQuality(setup.scene, quality === 'high'), [setup, quality])
 
   return (
     <>

@@ -125,3 +125,10 @@ export const ResetIcon = (p: P) => (
     <path d="M3 3v5h5" />
   </svg>
 )
+export const GaugeIcon = (p: P) => (
+  <svg {...base(p)} {...stroke}>
+    <path d="M4.5 18a9 9 0 1 1 15 0" />
+    <path d="m12 14 4-5" />
+    <circle cx="12" cy="14" r="1.2" fill="currentColor" />
+  </svg>
+)

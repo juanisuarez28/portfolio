@@ -1,6 +1,7 @@
-import { BallCollider, CuboidCollider, CylinderCollider, Physics, RigidBody, type RapierRigidBody } from '@react-three/rapier'
+import { BallCollider, CuboidCollider, CylinderCollider, Physics, RigidBody, useAfterPhysicsStep, type RapierRigidBody } from '@react-three/rapier'
 import { useEffect, useMemo, useRef } from 'react'
 import { audio } from '../../lib/audio'
+import { markShadowsDirty } from '../../lib/shadows'
 import { useAppStore } from '../../store/useAppStore'
 import { BALL_HOME, BALL_RADIUS, BASKET, KNOCKABLES_ORIGIN, ROOM, STATIC_COLLIDERS } from '../layout'
 import { kickDirection } from './BallSystem'
@@ -18,6 +19,7 @@ export default function PhysicsWorld() {
       <Basket />
       <Ball />
       <Knockables />
+      <ShadowWake />
     </Physics>
   )
 }
@@ -171,4 +173,16 @@ function Knockables() {
       ))}
     </>
   )
+}
+
+/** Mientras haya cuerpos despiertos (pelota rodando, latas cayendo) las sombras se recalculan (F25) */
+function ShadowWake() {
+  useAfterPhysicsStep((world) => {
+    let awake = false
+    world.forEachActiveRigidBody((b) => {
+      if (b.isDynamic()) awake = true
+    })
+    if (awake) markShadowsDirty()
+  })
+  return null
 }

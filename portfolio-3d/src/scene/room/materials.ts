@@ -165,3 +165,19 @@ export class RoomMaterials {
     return [...this.cache.values()]
   }
 }
+
+/**
+ * Calidad baja (F25): sin clearcoat ni sheen. En three esos efectos solo entran al shader si son > 0,
+ * así que ponerlos en 0 abarata cada píxel; los valores originales quedan en userData para volver.
+ */
+export function applyMaterialQuality(root: THREE.Object3D, high: boolean) {
+  root.traverse((o) => {
+    const mesh = o as THREE.Mesh
+    if (!mesh.isMesh) return
+    const p = mesh.material as THREE.MeshPhysicalMaterial
+    if (!p.isMeshPhysicalMaterial) return
+    const orig = (p.userData.fullQuality ??= { clearcoat: p.clearcoat, sheen: p.sheen }) as { clearcoat: number; sheen: number }
+    p.clearcoat = high ? orig.clearcoat : 0
+    p.sheen = high ? orig.sheen : 0
+  })
+}

@@ -3,7 +3,7 @@ import { SECRETS } from '../content/secrets'
 import { sections } from '../content/sections'
 import { audio } from '../lib/audio'
 import { currentView, useAppStore } from '../store/useAppStore'
-import { BackIcon, GithubIcon, LinkedinIcon, MoonIcon, ResetIcon, SoundOffIcon, SoundOnIcon, SunIcon, TrophyIcon } from './icons'
+import { BackIcon, GaugeIcon, GithubIcon, LinkedinIcon, MoonIcon, ResetIcon, SoundOffIcon, SoundOnIcon, SunIcon, TrophyIcon } from './icons'
 import { useIsWide } from './useMediaQuery'
 
 const BACK_LABEL: Record<string, string> = {
@@ -21,6 +21,9 @@ export function Hud() {
   const goHome = useAppStore((s) => s.goHome)
   const night = useAppStore((s) => s.night)
   const toggleNight = useAppStore((s) => s.toggleNight)
+  const lite = useAppStore((s) => s.quality === 'low')
+  const toggleQuality = useAppStore((s) => s.toggleQuality)
+  const showToast = useAppStore((s) => s.showToast)
   const soundOn = useAppStore((s) => s.soundOn)
   const toggleSound = useAppStore((s) => s.toggleSound)
   const secrets = useAppStore((s) => s.secrets.length)
@@ -61,6 +64,18 @@ export function Hud() {
           </button>
           <button className="icon-btn" onClick={toggleNight} aria-label={night ? 'Pasar a modo día' : 'Pasar a modo noche'}>
             {night ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <button
+            className={`icon-btn${lite ? ' is-on' : ''}`}
+            onClick={() => {
+              toggleQuality()
+              showToast(lite ? 'Calidad alta activada' : 'Modo liviano: menos carga para la placa de video')
+            }}
+            aria-label={lite ? 'Usar calidad alta' : 'Usar modo liviano'}
+            aria-pressed={lite}
+            title={lite ? 'Modo liviano activo' : 'Calidad alta'}
+          >
+            <GaugeIcon />
           </button>
           {wide && (
             <>
